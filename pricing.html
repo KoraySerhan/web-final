@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Management</title>
+    <link rel="stylesheet" href="pricing-styles.css">
+</head>
+<body>
+    <h1>Pricing Management</h1>
+    <div class="container">
+        <!-- Pricing Form -->
+        <section id="set-prices">
+            <h2>Set Product Prices</h2>
+            <form id="pricing-form">
+                <div class="category">
+                    <label>Category 1: Small (100g)</label>
+                    <input type="number" id="category-1-price" step="0.01" min="0" placeholder="Price per unit" required>
+                </div>
+                <div class="category">
+                    <label>Category 2: Medium (250g)</label>
+                    <input type="number" id="category-2-price" step="0.01" min="0" placeholder="Price per unit" required>
+                </div>
+                <div class="category">
+                    <label>Category 3: Large (500g)</label>
+                    <input type="number" id="category-3-price" step="0.01" min="0" placeholder="Price per unit" required>
+                </div>
+                <div class="category">
+                    <label>Category 4: Extra Large (1kg)</label>
+                    <input type="number" id="category-4-price" step="0.01" min="0" placeholder="Price per unit" required>
+                </div>
+                <div class="category">
+                    <label>Category 5: Family Pack (2kg)</label>
+                    <input type="number" id="category-5-price" step="0.01" min="0" placeholder="Price per unit" required>
+                </div>
+                <div class="category">
+                    <label>Category 6: Bulk Pack (5kg)</label>
+                    <input type="number" id="category-6-price" step="0.01" min="0" placeholder="Price per unit" required>
+                </div>
+                <button type="submit">Save Prices</button>
+            </form>
+        </section>
+
+        <!-- Display Current Prices -->
+        <section id="current-prices">
+            <h2>Current Prices</h2>
+            <div id="pricing-display">
+                <!-- Fiyatlar dinamik olarak buraya yüklenecek -->
+            </div>
+        </section>
+    </div>
+    <script src="pricing-script.js"></script>
+</body>
+</html>

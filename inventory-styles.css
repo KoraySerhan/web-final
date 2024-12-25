@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('arkaplan.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1 {
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+.section {
+    padding: 15px;
+    background-color: rgba(249, 249, 249, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+}
+
+.warning-section {
+    padding: 15px;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.warning-section p {
+    color: #856404;
+    font-weight: bold;
+}
+
+.stock-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.stock-bar-label {
+    width: 30%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.stock-bar-container {
+    flex-grow: 1;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.stock-bar-fill {
+    height: 100%;
+    background-color: #007BFF;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.stock-bar-percentage {
+    width: 10%;
+    text-align: right;
+}
+
+.reorder-button {
+    background-color: #ffc107;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reorder-button:hover {
+    background-color: #e0a800;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .stock-bar-label {
+        width: 40%;
+    }
+
+    .stock-bar-container {
+        height: 15px;
+    }
+}

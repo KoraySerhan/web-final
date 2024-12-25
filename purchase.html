@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blubery Purchases</title>
+    <link rel="stylesheet" href="purchase-styles.css">
+</head>
+<body>
+    <h1>Blubery Purchases</h1>
+    <div class="container">
+        <form id="purchase-form">
+            <div class="form-group">
+                <label for="farmer-select">Select Farmer:</label>
+                <select id="farmer-select" required>
+                    <option value="">-- Select Farmer --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="purchase-date">Date of Purchase:</label>
+                <input type="date" id="purchase-date" required>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity (kg):</label>
+                <input type="number" id="quantity" step="0.01" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price per Kg ($):</label>
+                <input type="number" id="price" step="0.01" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="total-cost">Total Cost ($):</label>
+                <input type="text" id="total-cost" readonly>
+            </div>
+            <button type="submit">Add Purchase</button>
+        </form>
+
+        <h2>Purchase Records</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Purchase ID</th>
+                    <th>Farmer Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="purchase-table-body">
+                <!-- Records will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Details Pop-up -->
+    <div id="details-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-details-popup" class="close-popup">&times;</span>
+            <h2>Purchase Details</h2>
+            <form>
+                <label for="details-id">Purchase ID:</label>
+                <input type="text" id="details-id" readonly>
+                <label for="details-farmer-id">Farmer ID:</label>
+                <input type="text" id="details-farmer-id" readonly>
+                <label for="details-farmer">Farmer Name:</label>
+                <input type="text" id="details-farmer" readonly>
+                <label for="details-date">Date of Purchase:</label>
+                <input type="text" id="details-date" readonly>
+                <label for="details-quantity">Quantity (kg):</label>
+                <input type="text" id="details-quantity" readonly>
+                <label for="details-price">Price per Kg ($):</label>
+                <input type="text" id="details-price" readonly>
+                <label for="details-total">Total Cost ($):</label>
+                <input type="text" id="details-total" readonly>
+            </form>
+        </div>
+    </div>
+
+    <!-- Update Pop-up -->
+    <div id="update-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-update-popup" class="close-popup">&times;</span>
+            <h2>Update Purchase</h2>
+            <form id="update-form">
+                <label for="update-date">Date of Purchase:</label>
+                <input type="date" id="update-date" required>
+                <label for="update-quantity">Quantity (kg):</label>
+                <input type="number" id="update-quantity" step="0.01" min="0" required>
+                <label for="update-price">Price per Kg ($):</label>
+                <input type="number" id="update-price" step="0.01" min="0" required>
+                <label for="update-total-cost">Total Cost ($):</label>
+                <input type="text" id="update-total-cost" readonly>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>  
+    <!-- Footer Buttons -->
+<div class="footer-buttons">
+    <button id="sort-records-btn">Sort Records</button>
+    <button id="generate-summary-btn">Generate Summaries</button>
+</div>
+
+<!-- Sort Records Pop-up -->
+<div id="sort-popup" class="popup">
+    <div class="popup-content">
+        <span id="close-sort-popup" class="close-popup">&times;</span>
+        <h2>Sort Records</h2>
+        <form id="sort-form">
+            <label for="sort-criteria">Sort By:</label>
+            <select id="sort-criteria">
+                <option value="date">Date</option>
+                <option value="farmerName">Farmer Name</option>
+                <option value="totalCost">Total Cost</option>
+            </select>
+            <button type="submit">Sort</button>
+        </form>
+        <div id="sorted-records-container">
+            <!-- Sorted records will be displayed here -->
+        </div>
+    </div>
+</div>
+
+<!-- Generate Summaries Pop-up -->
+<div id="summary-popup" class="popup">
+    <div class="popup-content">
+        <span id="close-summary-popup" class="close-popup">&times;</span>
+        <h2>Purchase Summaries</h2>
+        <div id="summary-container">
+            <!-- Summaries will be displayed here -->
+        </div>
+    </div>
+</div>
+
+
+    <script src="purchase-script.js"></script>
+</body>
+</html>

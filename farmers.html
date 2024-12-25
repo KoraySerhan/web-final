@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Management</title>
+    <link rel="stylesheet" href="farmers-styles.css">
+</head>
+<body>
+    <h1>Farmers</h1>
+
+    <!-- Farmer List Container -->
+    <div class="farmer-container">
+        <div id="farmer-list" class="farmer-list">
+            <!-- Farmer Items Buraya Eklenecek -->
+        </div>
+
+        <!-- Add Button -->
+        <div class="actions">
+            <button id="add-button">Add</button>
+        </div>
+    </div>
+
+    <!-- Pop-up for Adding Farmer -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="close-popup" class="close-popup">&times;</span>
+            <h2>Add New Farmer</h2>
+            <form id="farmer-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" required>
+
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" required>
+
+                <label for="country">Country:</label>
+                <input type="text" id="country" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" required>
+
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Details Pop-up -->
+    <div id="details-popup" class="popup">
+        <div class="popup-content">
+            <span id="close-details-popup" class="close-popup">&times;</span>
+            <h2>Farmer Details</h2>
+            <form>
+                
+                <label for="details-id">Farmer ID:</label>
+                <input type="text" id="details-id" readonly>
+
+                <label for="details-name">Name:</label>
+                <input type="text" id="details-name" readonly>
+
+                <label for="details-surname">Surname:</label>
+                <input type="text" id="details-surname" readonly>
+
+                <label for="details-phone">Phone:</label>
+                <input type="text" id="details-phone" readonly>
+
+                <label for="details-country">Country:</label>
+                <input type="text" id="details-country" readonly>
+
+                <label for="details-address">Address:</label>
+                <input type="text" id="details-address" readonly>
+                
+            </form>
+	    <button id="export-button" class="export-btn">Export</button>
+        </div>
+    </div>
+
+    <script src="farmer-script.js"></script>
+</body>
+</html>

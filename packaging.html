@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blubery Packaging</title>
+    <link rel="stylesheet" href="packaging-styles.css">
+</head>
+<body>
+    <h1>Blubery Packaging</h1>
+    <div class="container">
+        <!-- Total Blubery -->
+        <div class="section">
+            <h2>Total Blubery: <span id="total-blubery">0</span> kg</h2>
+        </div>
+
+        <!-- Packaging Categories -->
+        <form id="packaging-form">
+            <div class="section">
+                <h2>Product Categories</h2>
+                <div class="category">
+                    <label>Category 1: Small (100g)</label>
+                    <input type="number" id="category-1" min="0" value="0">
+                </div>
+                <div class="category">
+                    <label>Category 2: Medium (250g)</label>
+                    <input type="number" id="category-2" min="0" value="0">
+                </div>
+                <div class="category">
+                    <label>Category 3: Large (500g)</label>
+                    <input type="number" id="category-3" min="0" value="0">
+                </div>
+                <div class="category">
+                    <label>Category 4: Extra Large (1kg)</label>
+                    <input type="number" id="category-4" min="0" value="0">
+                </div>
+                <div class="category">
+                    <label>Category 5: Family Pack (2kg)</label>
+                    <input type="number" id="category-5" min="0" value="0">
+                </div>
+                <div class="category">
+                    <label>Category 6: Bulk Pack (5kg)</label>
+                    <input type="number" id="category-6" min="0" value="0">
+                </div>              
+            </div>
+
+            <button type="submit" id="package-button">Package</button>
+        </form>
+
+        <!-- Packaging Results -->
+        <div class="section">
+            <h2>Packaging Results</h2>
+            <p>Total Packages: <span id="total-packages">0</span></p>
+            <p>Remaining Blubery: <span id="remaining-blubery">0</span> kg</p>
+            <div id="category-results">
+                <!-- Her kategori için paket sonuçları burada görüntülenecek -->
+            </div>
+        </div>
+        <!-- Distribution Form -->
+<div class="section">
+    <h2>Distribute Packages</h2>
+    <form id="distribution-form">
+        <div class="category">
+            <label>Category 1: Small (100g)</label>
+            <input type="number" id="distribute-category-1" min="0" value="0">
+        </div>
+        <div class="category">
+            <label>Category 2: Medium (250g)</label>
+            <input type="number" id="distribute-category-2" min="0" value="0">
+        </div>
+        <div class="category">
+            <label>Category 3: Large (500g)</label>
+            <input type="number" id="distribute-category-3" min="0" value="0">
+        </div>
+        <div class="category">
+            <label>Category 4: Extra Large (1kg)</label>
+            <input type="number" id="distribute-category-4" min="0" value="0">
+        </div>
+        <div class="category">
+            <label>Category 5: Family Pack (2kg)</label>
+            <input type="number" id="distribute-category-5" min="0" value="0">
+        </div>
+        <div class="category">
+            <label>Category 6: Bulk Pack (5kg)</label>
+            <input type="number" id="distribute-category-6" min="0" value="0">
+        </div>
+        <button type="submit" id="distribute-button">Distribute</button>
+    </form>
+</div>
+
+    </div>
+
+    <script src="packaging-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blubery Sales Management</title>
+    <link rel="stylesheet" href="sales-styles.css">
+</head>
+<body>
+    <h1>Blubery Sales Overview</h1>
+    <div class="container">
+        <div class="info-sections">
+            <!-- Packaged Products Section -->
+            <section id="packaged-blubery">
+                <h2>Available Blubery Packages</h2>
+                <div id="blubery-display"></div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section id="pricing">
+                <h2>Current Pricing</h2>
+                <div id="pricing-display"></div>
+            </section>
+        </div>
+
+        <!-- Sales Section -->
+        <section id="sales">
+            <h2>Log a Sale</h2>
+            <form id="sales-form">
+                <label for="sale-date">Sale Date:</label>
+                <input type="date" id="sale-date" required>
+                <input type="text" id="customer-name" placeholder="Customer Name" required>
+                <input type="text" id="customer-contact" placeholder="Customer Contact" required>
+                <input type="text" id="customer-shipping" placeholder="Shipping Address" required>
+                <select id="product-category" required>
+                    <option value="" disabled selected>Select Product Category</option>
+                    <option value="Small">Category 1: Small (100g)</option>
+                    <option value="Medium">Category 2: Medium (250g)</option>
+                    <option value="Large">Category 3: Large (500g)</option>
+                    <option value="Extra Large">Category 4: Extra Large (1kg)</option>
+                    <option value="Family Pack">Category 5: Family Pack (2kg)</option>
+                    <option value="Bulk Pack">Category 6: Bulk Pack (5kg)</option>
+                </select>
+                <input type="number" id="quantity" placeholder="Quantity Ordered" min="1" required>
+                <button type="submit">Submit Order</button>
+            </form>
+        </section>
+
+        <!-- Orders Section -->
+        <section id="orders">
+            <h2>Order History</h2>
+            <table id="orders-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <!-- Sales Summary Section -->
+        <section id="sales-summary-section">
+            <h2>Sales Summary</h2>
+            <div id="sales-summary">
+                <!-- Sales summary will be dynamically populated here -->    
+            </div>
+            <div id="total-income"></div> 
+        </section>
+    </div>
+
+    <div id="update-popup" style="display: none;">
+        <form id="update-form">
+            <label for="update-customer-name">Customer Name:</label>
+            <input type="text" id="update-customer-name" required>
+    
+            <label for="update-product-category">Product Category:</label>
+            <select id="update-product-category" required>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+                <option value="Extra Large">Extra Large</option>
+                <option value="Family Pack">Family Pack</option>
+                <option value="Bulk Pack">Bulk Pack</option>
+            </select>
+    
+            <label for="update-quantity">Quantity:</label>
+            <input type="number" id="update-quantity" min="1" required>
+    
+            <label for="update-date">Date:</label>
+            <input type="date" id="update-date" required>
+    
+            <label for="update-status">Status:</label>
+            <select id="update-status" required>
+                <option value="Pending">Pending</option>
+                <option value="Processed">Processed</option>
+                <option value="Shipped">Shipped</option>
+                <option value="Delivered">Delivered</option>
+            </select>
+    
+            <button type="submit">Update Order</button>
+            <button type="button" id="close-update-popup">Cancel</button>
+        </form>
+    </div>
+    
+
+    <script src="sales-script.js"></script>
+</body>
+</html>

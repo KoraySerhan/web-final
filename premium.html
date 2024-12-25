@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Sale</title>
+    <link rel="stylesheet" href="premium-styles.css">
+</head>
+<body>
+    <header>
+        <h1>Premium Blueberry Sales</h1>
+    </header>
+    <main>
+        <section id="sale-form-section">
+            <h2>New Sale</h2>
+            <form id="sale-form">
+                <input type="text" id="customer-name" placeholder="Customer Name" required>
+                <input type="date" id="sale-date" required>
+                <input type="text" id="location" placeholder="Location" required>
+                <input type="number" id="quantity" placeholder="Quantity (kg)" min="1" required>
+                <input type="number" id="unit-price" placeholder="Unit Price ($/kg)" min="1" required>
+                <button type="submit">Add Sale</button>
+            </form>
+        </section>
+
+        <section id="summary-section">
+            <h2>Summary</h2>
+            <p id="total-sales">Total Sales: $0</p>
+            <p id="remaining-stock">Remaining Stock: 0 kg</p>
+        </section>
+
+        <section id="sales-records-section">
+            <h2>Sales Records</h2>
+            <table id="sales-table">
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Quantity (kg)</th>
+                        <th>Unit Price ($/kg)</th>
+                        <th>Total Price</th>
+                        <th>Discount</th>
+                        <th>Net Price</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+    <script src="premium-script.js"></script>
+</body>
+</html>

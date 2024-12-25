@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Analysis</title>
+    <link rel="stylesheet" href="profit-styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Profit Analysis Dashboard</h1>
+        <div class="summary">
+            <p><strong>Total Revenue:</strong> $<span id="total-revenue">0.00</span></p>
+            <p><strong>Total Expenses:</strong> $<span id="total-expenses">0.00</span></p>
+            <p><strong>Taxes (15%):</strong> $<span id="taxes">0.00</span></p>
+            <p><strong>Net Profit:</strong> $<span id="net-profit">0.00</span></p>
+        </div>
+        <div class="chart-container">
+            <canvas id="sales-chart"></canvas>
+        </div>
+        <div class="finance-container">
+            <h2>Financial Summary</h2>
+            <div class="date-filter">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+                <button id="filter-button">Filter</button>
+                <button id="see-all-button">See All</button>
+            </div>           
+                        
+            <table id="finance-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="finance-table-body"></tbody>
+            </table>
+        </div>
+        <div class="actions">
+            <button id="generate-report">Generate Report</button>
+            <button id="export-csv">Export CSV</button>
+            <button id="export-pdf">Export PDF</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="profit-script.js"></script>
+</body>
+</html>
