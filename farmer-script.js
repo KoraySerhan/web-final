@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const farmerList = document.getElementById("farmer-list");
     const popup = document.getElementById("popup");
     const detailsPopup = document.getElementById("details-popup");
-    const popupTitle = document.querySelector("#popup .popup-content h2"); // Pop-up başlığı
+    const popupTitle = document.querySelector("#popup .popup-content h2"); 
     const addButton = document.getElementById("add-button");
     const closePopup = document.getElementById("close-popup");
     const closeDetailsPopup = document.getElementById("close-details-popup");
@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const exportButton = document.getElementById("export-button");
 
     let farmers = JSON.parse(localStorage.getItem("farmersData")) || [];
-    let isEditing = false; // Update modunu takip eder
-    let editingFarmerId = null; // Düzenlenecek farmer ID'si
-    let currentFarmer = null; // Details pop-up için mevcut farmer
+    let isEditing = false; 
+    let editingFarmerId = null; 
+    let currentFarmer = null; 
 
-    // Add butonuna tıklama işlevi
+    
     addButton.addEventListener("click", () => {
-        isEditing = false; // Yeni ekleme modu
-        popupTitle.textContent = "Add New Farmer"; // Başlığı "Add New Farmer" yap
+        isEditing = false; 
+        popupTitle.textContent = "Add New Farmer"; 
         popup.style.display = "flex";
         farmerForm.reset();
     });
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     closePopup.addEventListener("click", () => popup.style.display = "none");
     closeDetailsPopup.addEventListener("click", () => detailsPopup.style.display = "none");
 
-    // Farmer ekleme ve güncelleme işlevi
+    
     farmerForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -35,20 +35,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const country = document.getElementById("country").value.trim();
         const address = document.getElementById("address").value.trim();
 
-        // Aynı isim ve soyisimde bir farmer olup olmadığını kontrol et
+        
         if (!isEditing && farmers.some(farmer => farmer.name === name && farmer.surname === surname)) {
             alert("A farmer with the same name and surname already exists.");
             return;
         }
 
         if (isEditing) {
-            // Farmer güncelleme
+            
             const farmerIndex = farmers.findIndex((farmer) => farmer.id === editingFarmerId);
             if (farmerIndex !== -1) {
                 farmers[farmerIndex] = { id: editingFarmerId, name, surname, phone, country, address };
             }
         } else {
-            // Yeni farmer ekleme
+            
             const farmer = {
                 id: Date.now(),
                 name,
@@ -66,12 +66,12 @@ document.addEventListener("DOMContentLoaded", function () {
         farmerForm.reset();
     });
 
-    // Farmer'ları LocalStorage'a kaydet
+    
     function saveFarmers() {
         localStorage.setItem("farmersData", JSON.stringify(farmers));
     }
 
-    // Farmer'ları gösteren fonksiyon
+    
     function displayFarmers() {
         farmerList.innerHTML = "";
         farmers.forEach((farmer) => {
@@ -89,9 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Farmer detaylarını gösteren pop-up
+    
     window.showDetails = function (name, surname, phone, country, address, id) {
-        document.getElementById("details-id").value = id; // Farmer ID ekleme
+        document.getElementById("details-id").value = id; 
         document.getElementById("details-name").value = name;
         document.getElementById("details-surname").value = surname;
         document.getElementById("details-phone").value = phone;
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
         detailsPopup.style.display = "flex";
     };
 
-    // Farmer bilgilerini txt olarak dışa aktarma
+    
     exportButton.addEventListener("click", function () {
         if (currentFarmer) {
             const fileContent = `
@@ -123,7 +123,7 @@ Address: ${currentFarmer.address}
         }
     });
 
-    // Farmer güncelleme işlevi
+    
     window.editFarmer = function (id) {
         const farmer = farmers.find((farmer) => farmer.id === id);
         if (farmer) {
@@ -136,18 +136,18 @@ Address: ${currentFarmer.address}
             isEditing = true;
             editingFarmerId = id;
 
-            popupTitle.textContent = "Update Farmer Information"; // Başlığı "Update Farmer Information" yap
+            popupTitle.textContent = "Update Farmer Information"; 
             popup.style.display = "flex";
         }
     };
 
-    // Farmer silme işlevi
+    
     window.deleteFarmer = function (id) {
         farmers = farmers.filter((farmer) => farmer.id !== id);
         saveFarmers();
         displayFarmers();
     };
 
-    // Sayfa yüklendiğinde farmer'ları göster
+    
     displayFarmers();
 });

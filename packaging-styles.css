@@ -48,7 +48,7 @@ form {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    flex-wrap: wrap; /* Flex içeriği sarmalamasını sağlar */
+    flex-wrap: wrap; 
 }
 
 input, button {
@@ -86,25 +86,25 @@ button:hover {
     color: #333;
 }
 
-/* Responsive Tasarım */
+
 @media (max-width: 768px) {
     .container {
-        width: 95%; /* Mobil ekranlarda genişlik küçültülür */
+        width: 95%; 
         padding: 15px;
     }
 
     .category {
-        flex-direction: column; /* Kategoriler dikey hizalanır */
-        align-items: flex-start; /* Elemanlar sola yaslanır */
+        flex-direction: column;
+        align-items: flex-start; 
     }
 
     input, button {
-        font-size: 14px; /* Mobil ekranlarda yazı boyutu küçültülür */
+        font-size: 14px; 
         padding: 8px;
     }
 
     h1 {
-        font-size: 20px; /* Başlık boyutu küçültülür */
+        font-size: 20px; 
     }
 }
 

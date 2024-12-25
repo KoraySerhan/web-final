@@ -103,7 +103,7 @@ p {
     background-color: #e0a800;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .container {
         width: 95%;

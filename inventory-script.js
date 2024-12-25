@@ -5,12 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const warningsEl = document.getElementById("warnings");
     const stockVisualizationEl = document.getElementById("stock-visualization");
 
-    // Fetch data from Local Storage
+    
     const purchaseRecords = JSON.parse(localStorage.getItem("purchaseRecords")) || [];
     const packagedBlubery = parseFloat(localStorage.getItem("remainingBlubery")) || 0;
     const packagedCounts = JSON.parse(localStorage.getItem("packagedBlubery"))?.categories || {};
 
-    // Category Names
+    
     const categoryNames = {
         "category-1": "Small (100g)",
         "category-2": "Medium (250g)",
@@ -20,14 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
         "category-6": "Bulk Pack (5kg)"
     };
 
-    // Calculate total blubery from farmers
+    
     const totalFarmersBlubery = purchaseRecords.reduce((total, record) => total + parseFloat(record.quantity || 0), 0);
 
-    // Update UI
+    
     totalFarmersBluberyEl.textContent = `${totalFarmersBlubery.toFixed(2)} kg`;
     remainingPackagingBluberyEl.textContent = `${packagedBlubery.toFixed(2)} kg`;
 
-    // Display packaging counts
+    
     const packagingCountsHtml = Object.entries(packagedCounts)
         .map(([category, count]) => {
             const categoryName = categoryNames[category] || category;
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     packagingCountsEl.innerHTML = packagingCountsHtml || "<p>No packages available.</p>";
 
-    // Display warnings
+    
     const warnings = [];
 
     if (packagedBlubery < 100) {
@@ -55,16 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
         ? `<div class="warning-section">${warnings.map(warning => `<p>${warning}</p>`).join("")}</div>`
         : "<p>No warnings at the moment.</p>";
 
-    // Redirect to Supplier Management
+    
     window.redirectToSuppliers = () => {
-        window.location.href = "supplier.html"; // Update this with the correct supplier page URL
+        window.location.href = "supplier.html";
     };
 
-    // Display stock visualization
+    
     const stockVisualizationHtml = Object.entries(packagedCounts)
         .map(([category, count]) => {
             const categoryName = categoryNames[category] || category;
-            const percentage = (count / 10) * 100; // Assuming 10 as full stock for visualization
+            const percentage = (count / 10) * 100;
             return `
                 <div class="stock-bar">
                     <div class="stock-bar-label">${categoryName}</div>

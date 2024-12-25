@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const salesChartCanvas = document.getElementById("sales-chart");
 
-    // Fetch data from Local Storage
+    
     const purchaseRecords = JSON.parse(localStorage.getItem("purchaseRecords")) || [];
     const orders = JSON.parse(localStorage.getItem("orders")) || [];
 
@@ -112,12 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
         updateSalesChart(orders);
     });
 
-    // Initial Summary Calculation and Chart
+    
     const initialSummary = calculateSummary(orders, purchaseRecords);
     updateSummaryTable(initialSummary);
     updateSalesChart(orders);
 
-    // Export Report
+    
     document.getElementById("generate-report").addEventListener("click", () => {
         const soldCategoryCounts = getSoldCategoryCounts(orders);
 
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Report generated:\n\n" + reportContent);
     });
 
-    // Export CSV
+    
     document.getElementById("export-csv").addEventListener("click", () => {
         const soldCategoryCounts = getSoldCategoryCounts(orders);
 
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.removeChild(link);
     });
 
-    // Export PDF
+    
     document.getElementById("export-pdf").addEventListener("click", () => {
         const soldCategoryCounts = getSoldCategoryCounts(orders);
 

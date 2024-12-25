@@ -1,4 +1,4 @@
-/* Genel Stil */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -82,7 +82,7 @@ tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-/* Action Buttons */
+
 .action-buttons {
     display: flex;
     justify-content: center;
@@ -116,7 +116,7 @@ tbody tr:nth-child(even) {
     cursor: pointer;
 }
 
-/* Footer Buttons */
+
 .footer-buttons {
     position: fixed;
     bottom: 20px;
@@ -140,7 +140,7 @@ tbody tr:nth-child(even) {
     background-color: #0056b3;
 }
 
-/* Pop-Up Genel Stil */
+
 .popup {
     display: none;
     position: fixed;
@@ -155,12 +155,12 @@ tbody tr:nth-child(even) {
 
 .popup-content {
     background: white;
-    padding: 40px; /* Daha fazla iç boşluk */
+    padding: 40px; 
     border-radius: 10px;
-    width: 600px; /* Genişlik büyütüldü */
+    width: 600px; 
     max-width: 95%;
-    height: auto; /* Dinamik yükseklik */
-    max-height: 90%; /* Görünüm içinde kalacak şekilde */
+    height: auto; 
+    max-height: 90%; 
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -191,7 +191,7 @@ tbody tr:nth-child(even) {
 }
 
 
-/* Readonly Alanlar */
+
 input[readonly] {
     background-color: #f8f9fa;
     border: 1px solid #ccc;
@@ -202,7 +202,7 @@ input[readonly] {
     cursor: default;
 }
 
-/* Responsive Tasarım: 768px ve Altı */
+
 @media (max-width: 768px) {
     .container {
         width: 95%;
@@ -222,8 +222,8 @@ input[readonly] {
     }
 
     .popup-content {
-        width: 90%; /* Oranına göre küçültme */
-        padding: 30px; /* Daha az boşluk */
+        width: 90%; 
+        padding: 30px; 
     }
 
     .action-buttons button {
@@ -232,7 +232,7 @@ input[readonly] {
     }
 }
 
-/* Responsive Tasarım: 480px ve Altı */
+
 @media (max-width: 480px) {
     h1 {
         font-size: 20px;
@@ -245,7 +245,7 @@ input[readonly] {
 
     .popup-content {
         width: 95%;
-        padding: 20px; /* Minimum boşluk */
+        padding: 20px; 
     }
 
     input, select, button {

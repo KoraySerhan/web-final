@@ -1,27 +1,27 @@
-/* Genel Stil */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background: url('arkaplan.jpg') no-repeat center center fixed;
-    background-size: cover; /* Arka plan resmi ekranı kaplar */
+    background-size: cover; 
     color: #333;
     text-align: center;
 }
 
 h1 {
     margin: 20px 0;
-    color: #2c3e50; /* Blubery rengi (mavi tonları) */
+    color: #2c3e50; 
     font-size: 32px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-/* Farmer Container */
+
 .farmer-container {
     width: 80%;
     margin: 20px auto;
-    background-color: rgba(255, 255, 255, 0.9); /* Hafif opak beyaz arka plan */
+    background-color: rgba(255, 255, 255, 0.9); 
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
@@ -31,7 +31,7 @@ h1 {
     gap: 10px;
 }
 
-/* Farmer List */
+
 .farmer-list {
     display: flex;
     flex-direction: column;
@@ -49,10 +49,10 @@ h1 {
     word-break: break-word;
 }
 
-/* Buton Grubu */
+
 .button-group {
-    display: flex; /* Butonları yan yana hizala */
-    gap: 10px; /* Butonlar arasında boşluk */
+    display: flex; 
+    gap: 10px; 
 }
 
 button {
@@ -70,7 +70,7 @@ button:hover {
 }
 
 button.delete-btn {
-    background-color: #FF4C4C; /* Delete butonu için kırmızı renk */
+    background-color: #FF4C4C; 
 }
 
 button.delete-btn:hover {
@@ -78,7 +78,7 @@ button.delete-btn:hover {
 }
 
 button.update-btn {
-    background-color: #28A745; /* Update butonu için yeşil renk */
+    background-color: #28A745; 
 }
 
 button.update-btn:hover {
@@ -88,7 +88,7 @@ button.update-btn:hover {
 button.export-btn {
     margin-top: 20px;
     padding: 12px 20px;
-    background-color: #6C757D; /* Export butonu için gri renk */
+    background-color: #6C757D; 
     border: none;
     border-radius: 5px;
     color: white;
@@ -101,7 +101,7 @@ button.export-btn:hover {
 }
 
 button.update-btn {
-    background-color: #28A745; /* Update butonu için yeşil renk */
+    background-color: #28A745; 
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -115,7 +115,7 @@ button.update-btn:hover {
 }
 
 
-/* Pop-up */
+
 .popup {
     display: none;
     position: fixed;
@@ -194,7 +194,7 @@ form button:hover {
     background-color: #0056b3;
 }
 
-/* Responsive Tasarım: 768px ve Altı */
+
 @media (max-width: 768px) {
     .farmer-container {
         width: 95%;
@@ -218,7 +218,7 @@ form button:hover {
     }
 }
 
-/* Responsive Tasarım: 480px ve Altı */
+
 @media (max-width: 480px) {
     h1 {
         font-size: 24px;

@@ -5,16 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const reportContainer = document.getElementById("report-container");
     const generateReportBtn = document.getElementById("generate-report-btn");
 
-    // Local Storage'dan purchase records al
     const purchaseRecords = JSON.parse(localStorage.getItem("purchaseRecords")) || [];
 
-    // Toplam Harcamayı Hesapla
     const calculateTotalExpense = () => {
         const total = purchaseRecords.reduce((acc, record) => acc + parseFloat(record.totalCost), 0);
         totalExpenseElement.textContent = total.toFixed(2);
     };
 
-    // Belirli Tarih Aralığındaki Harcamayı Hesapla
     timePeriodForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const startDate = new Date(document.getElementById("start-date").value);
@@ -35,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
         timePeriodExpenseElement.textContent = filteredTotal.toFixed(2);
     });
 
-    // Generate Report
     generateReportBtn.addEventListener("click", () => {
         const report = purchaseRecords.map(record => `
             <p><strong>Purchase ID:</strong> ${record.purchaseId}<br>
@@ -47,6 +43,5 @@ document.addEventListener("DOMContentLoaded", () => {
         reportContainer.innerHTML = report || "<p>No records found.</p>";
     });
 
-    // Başlangıçta toplam harcamayı hesapla
     calculateTotalExpense();
 });

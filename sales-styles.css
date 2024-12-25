@@ -103,7 +103,7 @@ input[type="date"] {
     margin-bottom: 10px;
 }
 
-/* Popup */
+
 .popup {
     position: fixed;
     top: 0;
@@ -126,7 +126,7 @@ input[type="date"] {
     text-align: left;
 }
 
-/* Update Popup */
+
 #update-popup {
     position: fixed;
     top: 50%;
@@ -146,7 +146,7 @@ input[type="date"] {
     padding: 10px;
 }
 
-/* Responsive Tasarım */
+
 @media (max-width: 768px) {
     .info-sections {
         flex-direction: column;

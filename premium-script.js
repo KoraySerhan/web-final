@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalSalesDisplay = document.getElementById("total-sales");
     const remainingStockDisplay = document.getElementById("remaining-stock");
 
-    let remainingStock = parseFloat(localStorage.getItem("remainingBlubery")) || 1000; // Initial stock
+    let remainingStock = parseFloat(localStorage.getItem("remainingBlubery")) || 1000; 
     let totalSales = parseFloat(localStorage.getItem("totalSales")) || 0;
     let salesRecords = JSON.parse(localStorage.getItem("salesRecords")) || [];
 
@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         let discount = 0;
-        if (quantity > 100) discount = 20; // 100kg üzeri %20 indirim
-        else if (quantity > 50) discount = 10; // 50kg üzeri %10 indirim
+        if (quantity > 100) discount = 20; 
+        else if (quantity > 50) discount = 10; 
 
         const totalPrice = quantity * unitPrice;
         const netPrice = totalPrice - (totalPrice * discount / 100);

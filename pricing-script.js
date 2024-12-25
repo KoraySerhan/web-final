@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pricingForm = document.getElementById("pricing-form");
     const pricingDisplay = document.getElementById("pricing-display");
 
-    // Fiyatları kaydetme
+    
     pricingForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -15,20 +15,20 @@ document.addEventListener("DOMContentLoaded", () => {
             "Bulk Pack": parseFloat(document.getElementById("category-6-price").value) || 0,
         };
 
-        // Negatif fiyat kontrolü
+       
         for (const [category, price] of Object.entries(productPrices)) {
             if (price < 0) {
                 alert(`Error: Price for ${category} cannot be negative.`);
-                return; // Negatif değer varsa işlemi durdur
+                return; 
             }
         }
 
         localStorage.setItem("productPrices", JSON.stringify(productPrices));
         alert("Prices saved successfully!");
-        displayCurrentPrices(); // Fiyatları güncelle
+        displayCurrentPrices(); 
     });
 
-    // Kaydedilen fiyatları göster
+    
     const displayCurrentPrices = () => {
         const productPrices = JSON.parse(localStorage.getItem("productPrices")) || {};
         if (Object.keys(productPrices).length === 0) {
@@ -41,6 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .join("");
     };
 
-    // Sayfa yüklendiğinde mevcut fiyatları göster
+   
     displayCurrentPrices();
 });

@@ -5,18 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoryResultsElement = document.getElementById("category-results");
     const packagingForm = document.getElementById("packaging-form");
 
-    // Purchase Records from Local Storage
+    
     const purchaseRecords = JSON.parse(localStorage.getItem("purchaseRecords")) || [];
     const totalBluberyFromStorage = parseFloat(localStorage.getItem("remainingBlubery")) || 
         purchaseRecords.reduce((acc, record) => acc + parseFloat(record.quantity), 0);
 
     let remainingBlubery = totalBluberyFromStorage;
 
-    // Paketlenmiş Blubery Bilgisi
+    
     const packagedBlubery = JSON.parse(localStorage.getItem("packagedBlubery")) || { totalPackages: 0, categories: {} };
     const premiumPackagedBlubery = JSON.parse(localStorage.getItem("premiumPackagedBlubery")) || [];
 
-    // Display Initial Total and Remaining Blubery
+    
     totalBluberyElement.textContent = remainingBlubery.toFixed(2);
     remainingBluberyElement.textContent = remainingBlubery.toFixed(2);
     totalPackagesElement.textContent = packagedBlubery.totalPackages;
@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
     
         let totalPackages = packagedBlubery.totalPackages;
-        const categoryCounts = { ...packagedBlubery.categories }; // Mevcut kategori bilgilerini kopyala
+        const categoryCounts = { ...packagedBlubery.categories }; 
     
-        // Category Weights
+        
         const weights = {
             "category-1": 0.1,
             "category-2": 0.25,
@@ -37,50 +37,50 @@ document.addEventListener("DOMContentLoaded", () => {
             "category-6": 5
         };
     
-        // Önce toplam gerekli blubery miktarını hesapla
+        
         let totalRequiredBlubery = 0;
         for (let key in weights) {
             const count = parseInt(document.getElementById(key).value) || 0;
             totalRequiredBlubery += count * weights[key];
         }
     
-        // Yeterli blubery kontrolü
+        
         if (remainingBlubery < totalRequiredBlubery) {
             alert("Not enough blubery for packaging. Please reduce quantities.");
-            return; // İşlemi durdur
+            return; 
         }
     
-        // Kategorilere göre paketleme işlemini uygula
+       
         for (let key in weights) {
             const count = parseInt(document.getElementById(key).value) || 0;
             const weight = weights[key];
             const requiredBlubery = count * weight;
     
-            if (count > 0) { // Eğer kullanıcı bu kategoriye bir değer girdiyse
-                remainingBlubery -= requiredBlubery; // Blubery miktarını azalt
-                totalPackages += count; // Toplam paket sayısını artır
-                categoryCounts[key] = (categoryCounts[key] || 0) + count; // Mevcut kategori sayısını güncelle
+            if (count > 0) { 
+                remainingBlubery -= requiredBlubery; 
+                totalPackages += count; 
+                categoryCounts[key] = (categoryCounts[key] || 0) + count; 
             }
         }
     
-        // Update Results
+        
         remainingBluberyElement.textContent = remainingBlubery.toFixed(2);
         totalPackagesElement.textContent = totalPackages;
     
-        // Display Category Results
+        
         displayCategoryResults(categoryCounts);
     
-        // Save to Local Storage
+       
         const updatedPackagedBlubery = { totalPackages, categories: categoryCounts };
         localStorage.setItem("remainingBlubery", remainingBlubery.toFixed(2));
         localStorage.setItem("packagedBlubery", JSON.stringify(updatedPackagedBlubery));
     
-        // Güncellenmiş packagedBlubery değerini bellekte de güncelle
+        
         packagedBlubery.totalPackages = totalPackages;
         packagedBlubery.categories = categoryCounts;
     });
 
-    // Dağıtım formunu işleme kodu
+    
     const distributionForm = document.getElementById("distribution-form");
 
     distributionForm.addEventListener("submit", (e) => {
@@ -108,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     const weight = weights[key];
                     totalReturnedBlubery += count * weight;
 
-                    categoryCounts[key] -= count; // Kategorideki paket sayısını azalt
-                    totalPackages -= count; // Toplam paket sayısını azalt
+                    categoryCounts[key] -= count; 
+                    totalPackages -= count; 
                 } else {
                     alert(`Not enough packages in ${getCategoryName(key)} to distribute.`);
                     return;
@@ -117,27 +117,27 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        remainingBlubery += totalReturnedBlubery; // Blubery stoğunu artır
+        remainingBlubery += totalReturnedBlubery; 
 
-        // Güncelleme
+        
         remainingBluberyElement.textContent = remainingBlubery.toFixed(2);
         totalPackagesElement.textContent = totalPackages;
 
         displayCategoryResults(categoryCounts);
 
-        // Yerel depolamayı güncelle
+      
         const updatedPackagedBlubery = { totalPackages, categories: categoryCounts };
         localStorage.setItem("remainingBlubery", remainingBlubery.toFixed(2));
         localStorage.setItem("packagedBlubery", JSON.stringify(updatedPackagedBlubery));
 
-        // Paket bilgilerini bellekte güncelle
+        
         packagedBlubery.totalPackages = totalPackages;
         packagedBlubery.categories = categoryCounts;
 
         alert(`${totalReturnedBlubery.toFixed(2)} kg Blubery has been returned to stock.`);
     });
     
-    // Display Category Results Function
+    
     const displayCategoryResults = (categoryCounts) => {
         categoryResultsElement.innerHTML = Object.entries(categoryCounts)
             .map(([key, count]) => {
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .join("");
     };
 
-    // Get Category Name
+    
     const getCategoryName = (key) => {
         const names = {
             "category-1": "Small (100g)",
@@ -161,6 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return names[key] || "Unknown Category";
     };
 
-    // Display Existing Category Results
+    
     displayCategoryResults(packagedBlubery.categories);
 });

@@ -17,16 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const salesSummaryDisplay = document.getElementById("sales-summary");
     const totalIncomeDisplay = document.getElementById("total-income");
 
-    // Local Storage'dan paketleme bilgileri
+    
     const packagedBlubery = JSON.parse(localStorage.getItem("packagedBlubery")) || {
         totalPackages: 0,
         categories: {}
     };
 
-    // Local Storage'dan fiyat bilgileri
+   
     const productPrices = JSON.parse(localStorage.getItem("productPrices")) || {};
 
-    // Local Storage'dan sipariş bilgileri
+    
     let orders = JSON.parse(localStorage.getItem("orders")) || [];
     let editingOrderIndex = null;
 
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         displayTotalIncome();
     };
 
-    // Satış Özeti Gösterimi
+    
     const displaySalesSummary = () => {
         const categorySales = orders.reduce((summary, order) => {
             summary[order.productCategory] = (summary[order.productCategory] || 0) + order.quantity;
@@ -101,13 +101,13 @@ document.addEventListener("DOMContentLoaded", () => {
             .join("");
     };
 
-    // Toplam Geliri Gösterme
+    
     const displayTotalIncome = () => {
         const totalIncome = orders.reduce((total, order) => total + order.totalPrice, 0);
         totalIncomeDisplay.innerHTML = `<p><strong>Total Income:</strong> $${totalIncome.toFixed(2)}</p>`;
     };
 
-    // Sipariş Silme İşlemi
+    
     window.deleteOrder = (index) => {
         if (confirm("Are you sure you want to delete this order?")) {
             const order = orders[index];
@@ -124,9 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (categoryKey && packagedBlubery.categories[categoryKey] !== undefined) {
                 packagedBlubery.categories[categoryKey] += order.quantity;
-                packagedBlubery.totalPackages += order.quantity; // Total packages artır
+                packagedBlubery.totalPackages += order.quantity; 
                 localStorage.setItem("packagedBlubery", JSON.stringify(packagedBlubery));
-                displayPackagedBlubery(); // Paket bilgilerini güncelle
+                displayPackagedBlubery(); 
             }
 
             orders.splice(index, 1);
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Sipariş Güncelleme İşlemi
+    
     window.editOrder = (index) => {
         const order = orders[index];
         editingOrderIndex = index;
@@ -196,10 +196,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const quantity = parseInt(document.getElementById("quantity").value);
         const date = document.getElementById("sale-date").value;
     
-        // Negatif sayı kontrolü (ekleme)
+        
         if (quantity < 0) {
             alert("Quantity cannot be negative.");
-            return; // Negatif giriş durumunda işlemi durdur
+            return; 
         }
     
         if (!productPrices[productCategory]) {
@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
             packagedBlubery.categories[categoryKey] -= quantity;
-            packagedBlubery.totalPackages -= quantity; // Total packages azalt
+            packagedBlubery.totalPackages -= quantity; 
             localStorage.setItem("packagedBlubery", JSON.stringify(packagedBlubery));
         }
     
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("orders", JSON.stringify(orders));
     
         updateOrdersTable();
-        displayPackagedBlubery(); // Satış sonrası paket bilgilerini güncelle
+        displayPackagedBlubery(); 
         salesForm.reset();
     });
     

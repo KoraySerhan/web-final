@@ -1,17 +1,17 @@
-/* Genel Gövde Stili */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('arkaplan.jpg') no-repeat center center fixed; /* Arkaplan resmi */
-    background-size: cover; /* Resmi ekrana sığdır */
-    color: #ffffff; /* Yazı rengi beyaz */
+    background: url('arkaplan.jpg') no-repeat center center fixed;
+    background-size: cover; 
+    color: #ffffff; 
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Sayfa Başlığı */
+
 .page-header {
     display: flex;
     align-items: center;
@@ -19,33 +19,33 @@ body {
     gap: 20px;
     margin-top: 30px;
     text-align: center;
-    background: #4A6FA5; /* Blueberry tonu */
+    background: #4A6FA5; 
     padding: 15px 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Hafif gölge efekti */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 .blueberry-image-header {
-    width: 100px; /* Görsel boyutu */
+    width: 100px; 
     height: 100px;
     border-radius: 50%;
 }
 
 .page-header h1 {
-    font-size: 36px; /* Başlık boyutu */
-    color: #ffffff; /* Beyaz yazı rengi */
+    font-size: 36px; 
+    color: #ffffff; 
     margin: 0;
 }
 
-/* Supplier Container */
+
 .supplier-container {
     display: flex;
     flex-direction: column;
     gap: 30px;
     width: 100%;
     max-width: 900px;
-    background: rgba(255, 255, 255, 0.9); /* Yarı saydam beyaz arka plan */
-    color: #333; /* Metin rengi */
+    background: rgba(255, 255, 255, 0.9); 
+    color: #333; 
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
@@ -53,7 +53,7 @@ body {
     margin-top: 20px;
 }
 
-/* Button Container */
+
 .button-container {
     display: flex;
     flex-direction: column;
@@ -70,26 +70,26 @@ body {
 }
 
 .icon {
-    width: 80px; /* Görsel boyutu büyütüldü */
+    width: 80px; 
     height: 80px;
     border-radius: 10px;
 }
 
 button {
-    padding: 15px 30px; /* Buton iç dolgusu büyütüldü */
-    background-color: #007BFF; /* Buton rengi */
+    padding: 15px 30px; 
+    background-color: #007BFF; 
     border: none;
     border-radius: 5px;
     color: white;
-    font-size: 18px; /* Buton yazı boyutu büyütüldü */
+    font-size: 18px; 
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3; /* Hover efekti */
+    background-color: #0056b3; 
 }
 
-/* Responsive Tasarım: 768px ve Altı */
+
 @media (max-width: 768px) {
     .supplier-container {
         padding: 20px;
@@ -107,11 +107,11 @@ button:hover {
     }
 
     button {
-        font-size: 16px; /* Küçük ekranlar için yazı boyutu */
+        font-size: 16px; 
     }
 }
 
-/* Responsive Tasarım: 480px ve Altı */
+
 @media (max-width: 480px) {
     .supplier-container {
         width: 100%;
@@ -119,7 +119,7 @@ button:hover {
     }
 
     .icon {
-        width: 60px; /* Küçük ekranlar için görsel boyutu */
+        width: 60px;
         height: 60px;
     }
 
