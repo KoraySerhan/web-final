@@ -76,15 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const date = document.getElementById("purchase-date").value;
         const quantity = parseFloat(document.getElementById("quantity").value);
         const pricePerKg = parseFloat(document.getElementById("price").value);
-        
-        // Negatif sayı kontrolü (Ekleme yapıldı)
+
         if (quantity < 0 || pricePerKg < 0) {
             alert("Quantity and Price per Kg cannot be negative.");
-            return; // Negatif değer girildiğinde işlemi durdur
+            return;
         }
-    
+
         const totalCost = (quantity * pricePerKg).toFixed(2);
-    
+
         const newRecord = {
             purchaseId,
             farmerId: selectedFarmer.id,
@@ -94,13 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
             pricePerKg,
             totalCost,
         };
-    
+
         purchaseRecords.push(newRecord);
         localStorage.setItem("purchaseRecords", JSON.stringify(purchaseRecords));
         renderTable();
         purchaseForm.reset();
-    
-        // Update remainingBlubery in localStorage
+
         const currentRemainingBlubery = parseFloat(localStorage.getItem("remainingBlubery")) || 0;
         const updatedRemainingBlubery = currentRemainingBlubery + quantity;
         localStorage.setItem("remainingBlubery", updatedRemainingBlubery.toFixed(2));
@@ -133,15 +131,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const date = document.getElementById("update-date").value;
         const quantity = parseFloat(document.getElementById("update-quantity").value) || 0;
         const pricePerKg = parseFloat(document.getElementById("update-price").value) || 0;
-    
-        // Negatif sayı kontrolü (Ekleme yapıldı)
+
         if (quantity < 0 || pricePerKg < 0) {
             alert("Quantity and Price per Kg cannot be negative.");
-            return; // Negatif değer girildiğinde işlemi durdur
+            return;
         }
-    
+
         const totalCost = (quantity * pricePerKg).toFixed(2);
-    
+
+        const updatedRemainingBlubery = parseFloat(localStorage.getItem("remainingBlubery")) || 0;
+        const previousQuantity = purchaseRecords[editIndex].quantity;
+        const newRemainingBlubery = updatedRemainingBlubery - previousQuantity + quantity;
+        localStorage.setItem("remainingBlubery", newRemainingBlubery.toFixed(2));
+
         purchaseRecords[editIndex] = {
             ...purchaseRecords[editIndex],
             date,
@@ -149,13 +151,18 @@ document.addEventListener("DOMContentLoaded", () => {
             pricePerKg,
             totalCost,
         };
-    
+
         localStorage.setItem("purchaseRecords", JSON.stringify(purchaseRecords));
         renderTable();
         updatePopup.style.display = "none";
     });
 
     window.deleteRecord = (index) => {
+        const deletedQuantity = purchaseRecords[index].quantity;
+        const currentRemainingBlubery = parseFloat(localStorage.getItem("remainingBlubery")) || 0;
+        const updatedRemainingBlubery = currentRemainingBlubery - deletedQuantity;
+        localStorage.setItem("remainingBlubery", updatedRemainingBlubery.toFixed(2));
+
         purchaseRecords.splice(index, 1);
         localStorage.setItem("purchaseRecords", JSON.stringify(purchaseRecords));
         renderTable();
